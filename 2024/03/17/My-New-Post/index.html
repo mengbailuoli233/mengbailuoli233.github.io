@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>WeiBai Blog | WeiBai Blog</title><meta name="author" content="WeiBai"><meta name="copyright" content="WeiBai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="title: 我的第一篇文章date: 2024-03-17 09:07:15tags: none 使用 acme.sh 脚本，在Linux服务器上免费申请 TSL&#x2F;SSL 域名证书如何安装 acme.sh安装很简单, 一个命令： &#109;&#x79;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WeiBai Blog">
+<meta property="og:url" content="https://mengbailuoli233.github.io/2024/03/17/My-New-Post/index.html">
+<meta property="og:site_name" content="WeiBai Blog">
+<meta property="og:description" content="title: 我的第一篇文章date: 2024-03-17 09:07:15tags: none 使用 acme.sh 脚本，在Linux服务器上免费申请 TSL&#x2F;SSL 域名证书如何安装 acme.sh安装很简单, 一个命令： &#109;&#x79;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-03-17T01:07:15.371Z">
+<meta property="article:modified_time" content="2024-03-17T01:14:30.781Z">
+<meta property="article:author" content="WeiBai">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://mengbailuoli233.github.io/2024/03/17/My-New-Post/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'WeiBai Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-17 09:14:30'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="WeiBai Blog"><span class="site-name">WeiBai Blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-17T01:07:15.371Z" title="发表于 2024-03-17 09:07:15">2024-03-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-17T01:14:30.781Z" title="更新于 2024-03-17 09:14:30">2024-03-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<p>title: 我的第一篇文章<br>date: 2024-03-17 09:07:15<br>tags: none</p>
+<p>使用 acme.sh 脚本，在Linux服务器上免费申请 TSL&#x2F;SSL 域名证书<br>如何安装 acme.sh<br>安装很简单, 一个命令：</p>
+<p><a href="mailto:&#109;&#x79;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">&#109;&#x79;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a>替换成你的Email电子邮箱。</p>
+<p>curl <a target="_blank" rel="noopener" href="https://get.acme.sh/">https://get.acme.sh</a> | sh -s email&#x3D;<a href="mailto:&#109;&#121;&#64;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#109;&#121;&#64;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;</a><br>将脚本下载到服务器安装：</p>
+<p>wget -O -  <a target="_blank" rel="noopener" href="https://get.acme.sh/">https://get.acme.sh</a> | sh -s email&#x3D;<a href="mailto:&#x6d;&#121;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;">&#x6d;&#121;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;</a><br>或者，从 git 安装，克隆此项目并启动安装：</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh.git">https://github.com/acmesh-official/acme.sh.git</a><br>cd .&#x2F;acme.sh<br>.&#x2F;acme.sh –install -m <a href="mailto:&#109;&#121;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#109;&#121;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;</a><br>安装程序将执行 3 个操作：</p>
+<p>创建并复制到您的主页目录： 所有证书也将放在此文件夹中。acme.sh$HOME~&#x2F;.acme.sh&#x2F;</p>
+<p>为以下内容创建别名：acme.sh&#x3D;~&#x2F;.acme.sh&#x2F;acme.sh</p>
+<p>创建每日 cron 作业以根据需要检查和续订证书。</p>
+<p>配置 acme.sh 脚本<br>普通用户和 root 用户都可以进行 acme.sh 安装使用。<br>安装过程进行了以下几步:<br>把 acme.sh 安装到你的 home 目录下:~&#x2F;.acme.sh&#x2F;并创建 一个 bash 的 alias,方便你的使用:</p>
+<p>alias acme.sh&#x3D;<del>&#x2F;.acme.sh&#x2F;acme.sh<br>echo ‘alias acme.sh&#x3D;</del>&#x2F;.acme.sh&#x2F;acme.sh’ &gt;&gt;&#x2F;etc&#x2F;profile<br>安装过程中会自动为你创建 cronjob, 每天 0:00 点自动检测所有的证书,如果快过期了,需要更新,则会自动更新证书。</p>
+<p>00 00 * * * root &#x2F;root&#x2F;.acme.sh&#x2F;acme.sh –cron –home &#x2F;root&#x2F;.acme.sh &amp;&gt;&#x2F;var&#x2F;log&#x2F;acme.sh.logs<br>更高级的安装选项请参考:<br><a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh/wiki/How-to-install">https://github.com/Neilpang/acme.sh/wiki/How-to-install</a><br>在该脚本的安装过程不会污染已有的系统任何功能和文件,所有的修改都限制在安装目录中: ~&#x2F;.acme.sh&#x2F;</p>
+<p>高级安装<br>git clone –depth 1 <a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh.git">https://github.com/acmesh-official/acme.sh.git</a><br>cd acme.sh<br>.&#x2F;acme.sh –install  <br>–home ~&#x2F;myacme <br>–config-home ~&#x2F;myacme&#x2F;data <br>–cert-home  ~&#x2F;mycerts <br>–accountemail  “<a href="mailto:&#109;&#121;&#x40;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#x6d;">&#109;&#121;&#x40;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#x6d;</a>“ <br>–accountkey  ~&#x2F;myaccount.key <br>–accountconf ~&#x2F;myaccount.conf <br>–useragent  “this is my client.”<br>您不需要全部设置，只需设置您关心的那些即可。</p>
+<p>说明：</p>
+<p>–home是要安装的自定义目录acme.sh。默认情况下，它安装到~&#x2F;.acme.sh</p>
+<p>–config-home是一个可写文件夹，acme.sh<br>将在其中写入所有文件（包括证书&#x2F;密钥、配置）。默认情况下，它位于–home</p>
+<p>–cert-home是一个自定义目录，用于保存您颁发的证书。默认情况下，它保存在–config-home.</p>
+<p>–accountemail是用于注册 Let’s Encrypt<br>帐户的电子邮件，您将在此处收到续订通知电子邮件。</p>
+<p>–accountkey是保存您的帐户私钥的文件。默认情况下，它保存在–config-home.</p>
+<p>–useragent 是用于发送到 Let’s Encrypt 的用户代理标头值。</p>
+<p>–nocron安装 acme.sh 而不使用 cronjob</p>
+<p>使用 acme.sh 申请证书<br>acme.sh 实现了 acme 协议支持的所有验证协议. 一般有两种方式验证: http 和 dns 验证。</p>
+<p>HTTP 方式<br>http 方式需要在你的网站根目录下放置一个文件,来验证你的域名所有权,完成验证. 然后就可以生成证书了。</p>
+<p>下面以域名test.com为例：</p>
+<p>acme.sh –issue -d test.com -d *.test.com –webroot &#x2F;www&#x2F;wwwroot&#x2F;test.com&#x2F;<br>只需要指定域名，并指定域名所在的网站根目录. acme.sh 会全自动的生成验证文件，并放到网站的根目录，然后自动完成验证。最后会聪明的删除验证文件，整个过程没有任何副作用。<br>如果你用的 apache服务器，acme.sh 还可以智能的从apache的配置中自动完成验证，你不需要指定网站根目录：</p>
+<p>acme.sh –issue -d test.com –test.com<br>如果你用的nginx服务器，或者反代, acme.sh还可以智能的从nginx的配置中自动完成验证，你不需要指定网站根目录：</p>
+<p>acme.sh –issue -d test.com –nginx<br>注意：无论是 apache 还是 nginx 模式，acme.sh在完成验证之后，会恢复到之前的状态，都不会私自更改你本身的配置。好处是你不用担心配置被搞坏。该类型的配置有一个缺点，你需要自己配置 ssl 的配置，否则只能成功生成证书，你的网站还是无法访问https，但是为了安全，你还是自己手动改配置吧。如果你还没有运行任何 web 服务，80 端口是空闲的，那么 acme.sh 还能假装自己是一个 webserver，临时听在80 端口，完成验证：</p>
+<p>acme.sh –issue -d test.com –standalone<br>DNS方式<br>这种方式的好处是，你不需要任何服务器，不需要任何公网 ip，只需要 dns 的解析记录即可完成验证。<br>这种方式的缺点是，如果不同时配置 Automatic DNS API，使用这种方式 acme.sh 将无法自动更新证书，每次都需要手动再次重新解析验证域名所有权。</p>
+<p>DNS方式申请证书<br>cd &#x2F;root&#x2F;.acme.sh<br>acme.sh –issue -d *.test.com -d test.com –dns –yes-I-know-dns-manual-mode-enough-go-ahead-please<br>修改DNS，在NS管理方修改主机记录。</p>
+<p>DNS方式生成证书<br>获取Let’s Encrypt免费泛域名证书。等待DNS解析生效后，运行以下命令重新生成证书：</p>
+<p>acme.sh –renew -d *.test.com -d test.com –dns –yes-I-know-dns-manual-mode-enough-go-ahead-please<br>注意第二次这里用的是 –renew</p>
+<p>dns 方式API<br>dns 方式的真正强大之处在于可以使用域名解析商提供的 api 自动添加 txt 记录完成验证。<br>acme.sh 目前支持 cloudflare、dnspod、cloudxns、godaddy 以及 ovh 等数十种解析商的自动集成。<br>以 dnspod 为例, 你需要先登录到 dnspod 账号，生成你的 api id 和 api key ，都是免费的。</p>
+<p>export DP_Id&#x3D;”xxxxxxxxxxx”<br>export DP_Key&#x3D;”xxxxxxxxxxxxxx”<br>acme.sh –issue –dns dns_dp -d test.com -d <a target="_blank" rel="noopener" href="http://www.test.com/">www.test.com</a><br>证书就会自动生成了. 这里给出的 api id 和 api key 会被自动记录下来, 将来你在使用 dnspod api 的时候, 就不需要再次指定了. 直接生成就好了:</p>
+<p>acme.sh –issue -d test.com –dns dns_dp<br>更详细的 api 用法:<a target="_blank" rel="noopener" href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md">https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md</a></p>
+<p>TLS&#x2F;SSL 证书的使用<br>TLS&#x2F;SSL证书安装<br>前面证书生成以后, 接下来需要把证书 copy 到真正需要用它的地方。</p>
+<p>注意, 默认生成的证书都放在安装目录下: ~&#x2F;.acme.sh&#x2F;,请不要直接使用此目录下的文件,例如: 不要直接让 nginx&#x2F;apache 的配置文件使用这下面的文件.这里面的文件都是内部使用,而且目录结构可能会变化. 正确的使用方法是使用 –installcert 命令,并指定目标位置, 然后证书文件会被copy到相应的位置, 例如:</p>
+<p>acme.sh –installcert -d test.com <br>–key-file &#x2F;etc&#x2F;nginx&#x2F;ssl&#x2F;test.key <br>–fullchain-file &#x2F;etc&#x2F;nginx&#x2F;ssl&#x2F;fullchain.cer <br>–reloadcmd “systemctl force-reload nginx”<br>Nginx服务器安装SSL证书<br>例如：以Nginx标准配置为例，生成的证书文件推荐使用 fullchain.cer，私钥文件为是 test.com.key。</p>
+<p>Nginx 的配置 ssl_certificate 使用 fullchain.cer ，而非 .cer，否则 SSL Labs 的测试会报 Chain issues Incomplete 错误。通过上述中生成的证书路径为&#x2F;www&#x2F;server&#x2F;panel&#x2F;vhost&#x2F;cert&#x2F;test.com&#x2F;；修改Nginx的配置文件</p>
+<p>server {<br>listen 443;<br>erver_name test.com;<br>ssl on;<br>root html;<br>index index.html index.htm;<br>ssl_certificate &#x2F;www&#x2F;server&#x2F;panel&#x2F;vhost&#x2F;cert&#x2F;test.com&#x2F;fullchain.cer;<br>ssl_certificate_key &#x2F;www&#x2F;server&#x2F;panel&#x2F;vhost&#x2F;cert&#x2F;test.com&#x2F;clsn.key;<br>ssl_session_timeout 5m;<br>ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;<br>ssl_protocols TLSv1 TLSv1.1 TLSv1.2;<br>ssl_prefer_server_ciphers on;<br>location &#x2F; {<br>root html;<br>index index.html index.htm;<br>}<br>}<br>重启nginx，加载新配置</p>
+<p>systemctl force-reload nginx<br>注意：这里用的是systemctl force-reload nginx，不是systemctl reload nginx，reload 并不会重新加载证书，所以用的 force-reload。</p>
+<p>更新证书<br>证书的更新<br>目前证书有效期是90天，在60天以后会通过定时任务自动更新，你无需任何操作。都是自动的，你不用担心证书失效的问题。</p>
+<p>acme.sh 更新<br>目前由于 acme 协议和 letsencrypt CA 都在频繁的更新, 因此 acme.sh 也经常更新以保持同步.升级 acme.sh 到最新版 :</p>
+<p>acme.sh –upgrade<br>如果你不想手动升级, 可以开启自动升级:</p>
+<p>acme.sh –upgrade –auto-upgrade<br>之后, acme.sh 就会自动保持更新了.你也可以随时关闭自动更新:</p>
+<p>acme.sh –upgrade –auto-upgrade 0<br>acme.sh脚本使用新cloudflare api令牌申请证书<br>备注：本文是将原作者的两种申请cloudflare证书的方式合在一起，即用global API和局部 API两种。</p>
+<p>前言：acme.sh是一个非常好用的用来申请证书的脚本，它开源在Github，它极大地降低了申请证书的难度，支持使用cloudflare api等众多api来申请证书。</p>
+<p>本文主要介绍使用此脚本来申请ssl证书，给你的http请求加把锁，具体会使用cloudflare api来介绍。</p>
+<p>准备条件：一台被分配了公网IP的主机、一个域名(建议购买收费域名)、电脑ssh客户端、能解决遇到问题的个体</p>
+<p>Global API申请证书部份<br>安装脚本文件<br>apt update &amp;&amp; apt -y install socat &#x2F;&#x2F;更新源并安装socat</p>
+<p>wget -qO- get.acme.sh | bash &#x2F;&#x2F;安装此脚本</p>
+<p>source ~&#x2F;.bashrc &#x2F;&#x2F;让别名生效，此后无论在哪里直接使用acme.sh，不用输绝对路径</p>
+<h1 id="由于最新acme-sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt"><a href="#由于最新acme-sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt" class="headerlink" title="由于最新acme.sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt"></a>由于最新acme.sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt</h1><p>acme.sh –set-default-ca –server letsencrypt<br>配置证书<br>获取Cloudflare api key<br>注册好cloudflare账号，把域名dns的解析权限交给cloudflare处理，这样以后只需要在cloudflare这里配置解析记录。按照图示获取cloudflare api key。</p>
+<p>1</p>
+<p>申请证书（二选一）<br>这里假定你的域名是yourdomain.com，执行下面命令申请证书：</p>
+<p>dns方式验证<br>export CF_Key&#x3D;”slfjksjffjfhfhkjhfksjf” &#x2F;&#x2F;此处替换成你自己的Key<br>export CF_Email&#x3D;”<a href="mailto:&#121;&#111;&#x75;&#114;&#99;&#x6c;&#x6f;&#117;&#x64;&#102;&#x6c;&#x61;&#114;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">&#121;&#111;&#x75;&#114;&#99;&#x6c;&#x6f;&#117;&#x64;&#102;&#x6c;&#x61;&#114;&#x65;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a>“ &#x2F;&#x2F;此处填写你给Cloudflare绑定的邮箱账号</p>
+<p>acme.sh –issue –dns dns_cf -d yourdomain.com -d <a target="_blank" rel="noopener" href="http://www.yourdomain.com/">www.yourdomain.com</a> -k ec-256<br>说明：Cloudflare现已不支持.tk .cf .ml等免费申请来的域名后缀使用此dns验证方式，付费域名才受支持，免费域名使用下面2.2.2方式。脚本申请到的证书和key都放在~&#x2F;.acme.sh&#x2F;yourdomain.com_ecc目录下。</p>
+<p>http方式验证<br>执行下面命令前请保证你80端口没有被别的程序使用，如果有，kill掉，执行下面命令前需要你先在cloudflare dns那里添加好A记录，可以开启cloudflare cdn（cdn对此http方式验证无影响）：</p>
+<p>acme.sh –issue –standalone -d yourdomain.com -d <a target="_blank" rel="noopener" href="http://www.yourdomain.com/">www.yourdomain.com</a> -k ec-256<br>说明：跟上面一样，脚本申请到的证书放在~&#x2F;.acme.sh&#x2F;yourdomain.com_ecc目录下</p>
+<p>安装证书到指定位置<br>假定linux主机里已有&#x2F;root&#x2F;ssl目录，现在要把证书和key安装到此目录下，那么执行下面的命令即可：</p>
+<p>acme.sh –installcert -d yourdomain.com -d <a target="_blank" rel="noopener" href="http://www.yourdomain.com/">www.yourdomain.com</a> –fullchain-file &#x2F;root&#x2F;ssl&#x2F;web.crt –key-file &#x2F;root&#x2F;ssl&#x2F;web.key –ecc<br>证书更新<br>从letscncrypt申请到的证书有效期是90天，但脚本会每60天会对证书进行更新，后续可能会缩短这个时间，都是自动的。</p>
+<h1 id="手动强制更新证书"><a href="#手动强制更新证书" class="headerlink" title="手动强制更新证书"></a>手动强制更新证书</h1><p>acme.sh –renew -d yourdomain.com -d <a target="_blank" rel="noopener" href="http://www.yourdomain.com/">www.yourdomain.com</a> –force –ecc<br>局部API部份<br>本文主要以Debian10为例，介绍使用新的cloudflare api令牌来申请证书，免费域名已不受cloudflare此种方式来申请证书，请使用付费域名。</p>
+<p>安装配置acme.sh脚本<br>以root用户ssh登陆到主机，使用下面命令安装配置脚本：</p>
+<h1 id="更新源并安装socat"><a href="#更新源并安装socat" class="headerlink" title="更新源并安装socat"></a>更新源并安装socat</h1><p>apt update &amp;&amp; apt -y install socat</p>
+<h1 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h1><p>wget -qO- get.acme.sh | bash</p>
+<h1 id="让脚本在-bashrc文件追加的一行环境变量生效，以后无论在哪里直接使用acme-sh，不用输绝对路径"><a href="#让脚本在-bashrc文件追加的一行环境变量生效，以后无论在哪里直接使用acme-sh，不用输绝对路径" class="headerlink" title="让脚本在.bashrc文件追加的一行环境变量生效，以后无论在哪里直接使用acme.sh，不用输绝对路径"></a>让脚本在.bashrc文件追加的一行环境变量生效，以后无论在哪里直接使用acme.sh，不用输绝对路径</h1><p>source ~&#x2F;.bashrc</p>
+<h1 id="由于最新acme-sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt-1"><a href="#由于最新acme-sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt-1" class="headerlink" title="由于最新acme.sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt"></a>由于最新acme.sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt</h1><p>acme.sh –set-default-ca –server letsencrypt<br>配置Cloudflare局部令牌<br>创建令牌<br>根据acme.sh脚本作者提供的文档：使用新的cloudflare api令牌，需要新创建此令牌方可使用：</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>依照上述图片设置即可，添加区域-DNS-编辑和区域-区域-读取权限，区域资源里面选择包括-账户的所有区域-你的账户。</p>
+<p>5</p>
+<p>配置好以后，点击创建令牌，注意此令牌token只会出现一次，切记保存，切记保存，切记保存！！！</p>
+<p>获取账户ID和区域ID<br>根据acme.sh文档，申请证书可能还需要提供两个ID，其中账户ID必须，区域ID可有可无，根据下图方法获取此两个ID：</p>
+<p>6</p>
+<p>下拉，找到API区域：</p>
+<p>7</p>
+<p>至此，即准备好了申请证书需要的材料：</p>
+<h1 id="上面第一步创建的令牌，即为token"><a href="#上面第一步创建的令牌，即为token" class="headerlink" title="上面第一步创建的令牌，即为token"></a>上面第一步创建的令牌，即为token</h1><p>CF_Token&#x3D;”xxxxxxx”</p>
+<h1 id="根据上图分别获取账户ID和区域ID"><a href="#根据上图分别获取账户ID和区域ID" class="headerlink" title="根据上图分别获取账户ID和区域ID"></a>根据上图分别获取账户ID和区域ID</h1><p>CF_Account_ID&#x3D;”aaaaaaaa”<br>CF_Zone_ID&#x3D;”bbbbbbbbb”   &#x2F;&#x2F;此项非必须<br>申请配置证书<br>申请证书<br>假定你的域名是example.com，执行下面命令申请证书，非root用户也可执行：</p>
+<h1 id="执行此命令设置变量的值，acme-sh脚本执行过程会读取"><a href="#执行此命令设置变量的值，acme-sh脚本执行过程会读取" class="headerlink" title="执行此命令设置变量的值，acme.sh脚本执行过程会读取"></a>执行此命令设置变量的值，acme.sh脚本执行过程会读取</h1><p>export CF_Token&#x3D;”xxxxxxx”<br>export CF_Account_ID&#x3D;”aaaaaaa”<br>export CF_Zone_ID&#x3D;”bbbbbbbb”   &#x2F;&#x2F;此项非必须，上面两项需要提供</p>
+<h1 id="申请证书"><a href="#申请证书" class="headerlink" title="申请证书"></a>申请证书</h1><p>acme.sh –issue -d example.com -d *.example.com –dns dns_cf -k ec-256<br>安装证书到指定位置<br>假定linux主机里已有&#x2F;etc&#x2F;ssl目录，现在要把证书和key安装到此目录下，那么执行下面的命令即可：</p>
+<p>acme.sh –installcert -d example.com -d *.example.com –fullchain-file &#x2F;etc&#x2F;ssl&#x2F;web.crt –key-file &#x2F;etc&#x2F;ssl&#x2F;web.key –ecc</p>
+<h1 id="用–reloadcmd指定安装证书后的命令"><a href="#用–reloadcmd指定安装证书后的命令" class="headerlink" title="用–reloadcmd指定安装证书后的命令"></a>用–reloadcmd指定安装证书后的命令</h1><p>acme.sh –installcert -d example.com -d *.example.com –fullchain-file &#x2F;etc&#x2F;ssl&#x2F;web.crt –key-file &#x2F;etc&#x2F;ssl&#x2F;web.key –ecc –reloadcmd “systemctl restart webserver”<br>说明：脚本更新完证书后，会自动依据上面指定的绝对路径将证书和key安装到指定位置，并根据–reloadcmd执行相应的操作。</p>
+<p>证书更新<br>从letsencrypt申请到的证书有效期是90天，脚本每60天会对证书进行更新，你也可以手动强制更新：</p>
+<h1 id="查询域名申请证书信息"><a href="#查询域名申请证书信息" class="headerlink" title="查询域名申请证书信息"></a>查询域名申请证书信息</h1><p>acme.sh –list</p>
+<h1 id="手动强制更新证书-1"><a href="#手动强制更新证书-1" class="headerlink" title="手动强制更新证书"></a>手动强制更新证书</h1><p>acme.sh –renew -d example.com -d *.example.com –force –ecc<br>acme.sh –renew -d example.com -d *.example.com –force &#x2F;&#x2F;非ECC证书使用此命令</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://mengbailuoli233.github.io">WeiBai</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://mengbailuoli233.github.io/2024/03/17/My-New-Post/">https://mengbailuoli233.github.io/2024/03/17/My-New-Post/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://mengbailuoli233.github.io" target="_blank">WeiBai Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/03/17/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">WeiBai</div><div class="author-info__description">Programming learning</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E6%9C%80%E6%96%B0acme-sh%E8%84%9A%E6%9C%AC%E9%BB%98%E8%AE%A4ca%E5%8F%98%E6%88%90%E4%BA%86zerossl%EF%BC%8C%E7%8E%B0%E6%89%A7%E8%A1%8C%E4%B8%8B%E9%9D%A2%E5%91%BD%E4%BB%A4%E4%BF%AE%E6%94%B9%E8%84%9A%E6%9C%AC%E9%BB%98%E8%AE%A4ca%E4%B8%BAletsencrypt"><span class="toc-number">1.</span> <span class="toc-text">由于最新acme.sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E8%AF%81%E4%B9%A6"><span class="toc-number">2.</span> <span class="toc-text">手动强制更新证书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%BA%90%E5%B9%B6%E5%AE%89%E8%A3%85socat"><span class="toc-number">3.</span> <span class="toc-text">更新源并安装socat</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text">安装脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A9%E8%84%9A%E6%9C%AC%E5%9C%A8-bashrc%E6%96%87%E4%BB%B6%E8%BF%BD%E5%8A%A0%E7%9A%84%E4%B8%80%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%94%9F%E6%95%88%EF%BC%8C%E4%BB%A5%E5%90%8E%E6%97%A0%E8%AE%BA%E5%9C%A8%E5%93%AA%E9%87%8C%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8acme-sh%EF%BC%8C%E4%B8%8D%E7%94%A8%E8%BE%93%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-number">5.</span> <span class="toc-text">让脚本在.bashrc文件追加的一行环境变量生效，以后无论在哪里直接使用acme.sh，不用输绝对路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E6%9C%80%E6%96%B0acme-sh%E8%84%9A%E6%9C%AC%E9%BB%98%E8%AE%A4ca%E5%8F%98%E6%88%90%E4%BA%86zerossl%EF%BC%8C%E7%8E%B0%E6%89%A7%E8%A1%8C%E4%B8%8B%E9%9D%A2%E5%91%BD%E4%BB%A4%E4%BF%AE%E6%94%B9%E8%84%9A%E6%9C%AC%E9%BB%98%E8%AE%A4ca%E4%B8%BAletsencrypt-1"><span class="toc-number">6.</span> <span class="toc-text">由于最新acme.sh脚本默认ca变成了zerossl，现执行下面命令修改脚本默认ca为letsencrypt</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8A%E9%9D%A2%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%88%9B%E5%BB%BA%E7%9A%84%E4%BB%A4%E7%89%8C%EF%BC%8C%E5%8D%B3%E4%B8%BAtoken"><span class="toc-number">7.</span> <span class="toc-text">上面第一步创建的令牌，即为token</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E4%B8%8A%E5%9B%BE%E5%88%86%E5%88%AB%E8%8E%B7%E5%8F%96%E8%B4%A6%E6%88%B7ID%E5%92%8C%E5%8C%BA%E5%9F%9FID"><span class="toc-number">8.</span> <span class="toc-text">根据上图分别获取账户ID和区域ID</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%AD%A4%E5%91%BD%E4%BB%A4%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%EF%BC%8Cacme-sh%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E4%BC%9A%E8%AF%BB%E5%8F%96"><span class="toc-number">9.</span> <span class="toc-text">执行此命令设置变量的值，acme.sh脚本执行过程会读取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6"><span class="toc-number">10.</span> <span class="toc-text">申请证书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E2%80%93reloadcmd%E6%8C%87%E5%AE%9A%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6%E5%90%8E%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">11.</span> <span class="toc-text">用–reloadcmd指定安装证书后的命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%9F%9F%E5%90%8D%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E4%BF%A1%E6%81%AF"><span class="toc-number">12.</span> <span class="toc-text">查询域名申请证书信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E8%AF%81%E4%B9%A6-1"><span class="toc-number">13.</span> <span class="toc-text">手动强制更新证书</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2024/03/17/My-New-Post/" title="无题">无题</a><time datetime="2024-03-17T01:07:15.371Z" title="发表于 2024-03-17 09:07:15">2024-03-17</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/03/17/hello-world/" title="Hello World">Hello World</a><time datetime="2024-03-17T00:33:56.066Z" title="发表于 2024-03-17 08:33:56">2024-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By WeiBai</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
